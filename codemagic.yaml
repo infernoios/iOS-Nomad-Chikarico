@@ -4,15 +4,15 @@ workflows:
         max_build_duration: 120
         instance_type: mac_mini_m2
         integrations:
-            app_store_connect: "Chikarico"
+            app_store_connect: "Chikaricos"
         environment:
             ios_signing:
                 distribution_type: app_store
-                bundle_identifier: eld.maxboehm.chikarico
+                bundle_identifier: kl.coschikari.blud
             vars:
-                BUNDLE_ID: "eld.maxboehm.chikarico"
+                BUNDLE_ID: "kl.coschikari.blud"
                 XCODE_SCHEME: "Chikarico"
-                APP_STORE_APPLE_ID: 6758348193
+                APP_STORE_APPLE_ID: 6758615284
             xcode: latest
         scripts:
             - name: Set up provisioning profiles settings on Xcode project
