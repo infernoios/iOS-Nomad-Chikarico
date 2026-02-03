@@ -6,7 +6,7 @@ struct ChikaricoApp: App {
     
     var body: some Scene {
         WindowGroup {
-            Jisuqopibe()
+            Sihiyuc()
         }
     }
 }

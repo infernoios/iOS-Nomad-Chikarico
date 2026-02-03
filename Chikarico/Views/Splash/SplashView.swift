@@ -114,7 +114,7 @@ struct SplashScreen: View {
                 }
                 
                 // App name with gradient
-                Text("Chikarico")
+                Text("Chikaricos")
                     .font(.system(size: 48, weight: .bold, design: .rounded))
                     .foregroundStyle(
                         LinearGradient(

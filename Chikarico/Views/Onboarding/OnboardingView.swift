@@ -8,7 +8,7 @@ struct OnboardingView: View {
     private let pages: [OnboardingPage] = [
         OnboardingPage(
             icon: "calendar.badge.clock",
-            title: "Welcome to Chikarico",
+            title: "Welcome to Chikaricos",
             description: "See and understand your recurring commitments over time. A commitment is anything you once agreed to keep repeating."
         ),
         OnboardingPage(

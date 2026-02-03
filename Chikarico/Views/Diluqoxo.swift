@@ -1,18 +1,17 @@
 import SwiftUI
 @preconcurrency import WebKit
-import Combine
 
-struct Qococebay: View {
+struct Diluqoxo: View {
 
-    @StateObject var wukux: Honan = Honan()
+    @StateObject var ququ: Matafecoyubo = Matafecoyubo()
     @State var loading: Bool = true
 
     var body: some View {
         ZStack {
 
-            let rotuy = URL(string: Defonuju.shared.pucipocepa ?? "") ?? URL(string: wukux.poyex)!
+            let lumoluqiqu = URL(string: Rohuhevuzuc.shared.timovoca ?? "") ?? URL(string: ququ.zejahoku)!
 
-            Qodemofome(duzaquri: rotuy, wukux: wukux)
+            Cukal(ximofoce: lumoluqiqu, ququ: ququ)
                 .background(Color.black.ignoresSafeArea())
                 .edgesIgnoringSafeArea(.bottom)
                 .blur(radius: loading ? 15 : 0)

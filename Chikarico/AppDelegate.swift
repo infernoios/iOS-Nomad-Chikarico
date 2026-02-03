@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setup(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        OneSignal.initialize("e76e7c1f-a022-4906-98d0-deaae3b8bba5", withLaunchOptions: launchOptions)
+        OneSignal.initialize("1be0a385-9bee-4038-a71d-bc4100344917", withLaunchOptions: launchOptions)
         OneSignal.Notifications.requestPermission({ accepted in })
     }
 }
