@@ -42,7 +42,7 @@ struct EditCommitmentView: View {
             
             ScrollView {
                 VStack(spacing: 24) {
-                    // Header
+                    // Header with SafeArea
                     HStack {
                         Button(action: { router.pop() }) {
                             Image(systemName: "chevron.left")
@@ -66,6 +66,9 @@ struct EditCommitmentView: View {
                         .disabled(!canSave)
                     }
                     .padding(.horizontal, 20)
+                    .safeAreaInset(edge: .top) {
+                        Color.clear.frame(height: 0)
+                    }
                     .padding(.top, 8)
                     
                     // Form

@@ -64,6 +64,9 @@ struct QuietHighlightsView: View {
                         .frame(width: 40, height: 40)
                 }
                 .padding(.horizontal, 20)
+                .safeAreaInset(edge: .top) {
+                    Color.clear.frame(height: 0)
+                }
                 .padding(.top, 8)
                 .padding(.bottom, 20)
                 

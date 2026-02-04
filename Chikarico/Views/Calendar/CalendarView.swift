@@ -18,7 +18,7 @@ struct CalendarView: View {
                 .ignoresSafeArea()
             
             VStack(spacing: 0) {
-                // Header
+                // Header with SafeArea
                 HStack {
                     Button(action: { router.pop() }) {
                         Image("icon_back")
@@ -44,51 +44,56 @@ struct CalendarView: View {
                     }
                 }
                 .padding(.horizontal, 20)
+                .safeAreaInset(edge: .top) {
+                    Color.clear.frame(height: 0)
+                }
                 .padding(.top, 8)
                 .padding(.bottom, 16)
                 
-                // Calendar
-                CalendarMonthView(
-                    month: $currentMonth,
-                    commitments: persistence.appState.commitments.commitments,
-                    categories: persistence.appState.categories.categories,
-                    selectedDate: $selectedDate,
-                    router: router
-                )
-                
-                // Selected date commitments section (always visible to maintain layout)
-                VStack(alignment: .leading, spacing: 12) {
-                    Text(selectedDate.formattedShort())
-                        .font(.system(size: 20, weight: .semibold))
-                        .foregroundColor(.textPrimary)
-                        .padding(.horizontal, 20)
-                        .padding(.top, 16)
-                    
-                    if !commitmentsForSelectedDate.isEmpty {
-                        ScrollView {
-                            LazyVStack(spacing: 12) {
-                                ForEach(commitmentsForSelectedDate) { commitment in
-                                    CommitmentCard(commitment: commitment, router: router, persistence: persistence)
-                                }
-                            }
-                            .padding(.horizontal, 20)
-                            .padding(.bottom, 20)
-                        }
-                    } else {
-                        // Empty state to maintain layout
-                        VStack(spacing: 16) {
-                            Image("icon_empty_search")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 80, height: 80)
-                                .opacity(0.5)
+                ScrollView {
+                    VStack(spacing: 0) {
+                        // Calendar
+                        CalendarMonthView(
+                            month: $currentMonth,
+                            commitments: persistence.appState.commitments.commitments,
+                            categories: persistence.appState.categories.categories,
+                            selectedDate: $selectedDate,
+                            router: router
+                        )
+                        
+                        // Selected date commitments section
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text(selectedDate.formattedShort())
+                                .font(.system(size: 20, weight: .semibold))
+                                .foregroundColor(.textPrimary)
+                                .padding(.horizontal, 20)
+                                .padding(.top, 16)
                             
-                            Text("No commitments on this date")
-                                .font(.system(size: 16, weight: .medium))
-                                .foregroundColor(.textSecondary)
+                            if !commitmentsForSelectedDate.isEmpty {
+                                LazyVStack(spacing: 12) {
+                                    ForEach(commitmentsForSelectedDate) { commitment in
+                                        CommitmentCard(commitment: commitment, router: router, persistence: persistence)
+                                    }
+                                }
+                                .padding(.horizontal, 20)
+                                .padding(.bottom, 20)
+                            } else {
+                                // Empty state
+                                VStack(spacing: 16) {
+                                    Image("icon_empty_search")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 80, height: 80)
+                                        .opacity(0.5)
+                                    
+                                    Text("No commitments on this date")
+                                        .font(.system(size: 16, weight: .medium))
+                                        .foregroundColor(.textSecondary)
+                                }
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 60)
+                            }
                         }
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 60)
                     }
                 }
             }

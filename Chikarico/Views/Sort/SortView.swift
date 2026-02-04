@@ -26,7 +26,7 @@ struct SortView: View {
             .ignoresSafeArea()
             
             VStack(spacing: 0) {
-                // Header
+                // Header with SafeArea
                 HStack {
                     Button(action: {
                         localSort = sort
@@ -54,6 +54,9 @@ struct SortView: View {
                     }
                 }
                 .padding(.horizontal, 20)
+                .safeAreaInset(edge: .top) {
+                    Color.clear.frame(height: 0)
+                }
                 .padding(.top, 8)
                 .padding(.bottom, 20)
                 

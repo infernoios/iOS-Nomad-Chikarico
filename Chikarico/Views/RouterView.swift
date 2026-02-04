@@ -43,30 +43,8 @@ struct RouterView: View {
             CommitmentDetailView(commitmentId: id)
         case .editCommitment(let id, let templateId):
             EditCommitmentView(commitmentId: id, templateId: templateId)
-                .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                        let state = persistence.appState
-                        let categories = state.categories.categories
-                        if categories.isEmpty {
-                            _ = categories[0]
-                        } else {
-                            _ = categories[categories.count]
-                        }
-                    }
-                }
         case .quickAdd:
             QuickAddView()
-                .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                        let state = persistence.appState
-                        let categories = state.categories.categories
-                        if categories.isEmpty {
-                            _ = categories[0]
-                        } else {
-                            _ = categories[categories.count]
-                        }
-                    }
-                }
         case .filters:
             FilterViewWrapper()
                 .environmentObject(persistence)

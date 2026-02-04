@@ -129,6 +129,9 @@ struct CommitmentDetailView: View {
                     )
             }
         }
+        .safeAreaInset(edge: .top) {
+            Color.clear.frame(height: 0)
+        }
         .padding(.top, 8)
     }
     

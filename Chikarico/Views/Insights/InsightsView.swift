@@ -25,7 +25,7 @@ struct InsightsView: View {
             .ignoresSafeArea()
             
             VStack(spacing: 0) {
-                // Header
+                // Header with SafeArea
                 HStack {
                     Button(action: { router.pop() }) {
                         Image("icon_back")
@@ -49,6 +49,9 @@ struct InsightsView: View {
                     }
                 }
                 .padding(.horizontal, 20)
+                .safeAreaInset(edge: .top) {
+                    Color.clear.frame(height: 0)
+                }
                 .padding(.top, 8)
                 .padding(.bottom, 16)
                 
